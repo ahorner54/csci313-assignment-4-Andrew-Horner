@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Author
-from catalog.forms import RenewBookForm
+from catalog.forms import RenewBookModelForm
 
 # Create your views here.
 
