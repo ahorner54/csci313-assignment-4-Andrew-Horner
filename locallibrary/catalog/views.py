@@ -54,6 +54,8 @@ class BookDetailView(generic.DetailView):
     model = Book
 
 
+
+
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
     model = BookInstance
