@@ -66,7 +66,7 @@ class AuthorListView(generic.ListView):
     paginate_by = 5
 
 class AuthorDetailView(generic.DetailView):
-    model=Author
+    model = Author
 
 
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
