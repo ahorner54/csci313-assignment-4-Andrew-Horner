@@ -3,11 +3,11 @@ body>div {
 }
 
 body {
-  background-color: blue;
+  background-color: hsl(200, 55%, 40%);
 }
 
 body>.container {
-  background-color: lightblue;
+  background-color: hsl(200, 55%, 60%);
   min-height: 200px;
   max-height: 950px;
   height: 950px;
@@ -61,4 +61,8 @@ th {
 
 #authorForm>input {
   margin-top: 25px;
+}
+
+a {
+  text-decoration: none;
 }
