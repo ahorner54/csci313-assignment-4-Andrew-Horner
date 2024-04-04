@@ -7,11 +7,13 @@
 
 {% block content %}
 <h2 id="authorForm">Create A New Author Record</h2>
-<form action="" method="post">
+<div class="container-fluid">
+<form action="" method="post" id="authorForm">
   {% csrf_token %}
   <table>
     {{ form.as_table }}
   </table>
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Submit" class="btn btn-primary" />
 </form>
+</div>
 {% endblock %}
