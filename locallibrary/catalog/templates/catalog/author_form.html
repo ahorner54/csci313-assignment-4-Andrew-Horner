@@ -1,8 +1,12 @@
 {% extends "base_generic.html" %}
 
-
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+{% endblock style %}
 
 {% block content %}
+<h2 id="authorForm">Create A New Author Record</h2>
 <form action="" method="post">
   {% csrf_token %}
   <table>

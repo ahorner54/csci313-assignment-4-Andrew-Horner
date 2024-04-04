@@ -8,7 +8,9 @@ body {
 
 body>.container {
   background-color: lightblue;
-  height: 200%;
+  min-height: 200px;
+  max-height: 950px;
+  height: 950px;
 }
 
 #logout-form {
@@ -34,4 +36,25 @@ body>.container {
 #authorList>li {
   font-size: 15pt;
   list-style-type: square;
+}
+
+#authorForm>tr,
+td,
+th {
+  height: 50px;
+}
+
+#authorForm>h2 {
+  margin: 100px;
+  color: red;
+}
+
+#bookForm>tr,
+td,
+th {
+  height: 50px;
+}
+
+#bookForm>input {
+  margin-top: 25px;
 }
