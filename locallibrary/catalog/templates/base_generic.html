@@ -13,51 +13,15 @@
       crossorigin="anonymous"
     />
     <!-- Add additional CSS in static file -->
+    {% block style %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% endblock style%}
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2">
-          {% block sidebar %}
-          <ul class="sidebar-nav">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'books'%}">All books</a></li>
-            <li><a href="{% url 'authors' %}">All authors</a></li>
-          </ul>
-          <ul class="sidebar-nav">
-            {% if user.is_authenticated %}
-            <li><strong>User: </strong>{{ user.get_username }}</li>
-            <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
-            <li>
-              <form id="logout-form" method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-link">Logout</button>
-              </form>
-            </li>
-          {% else %}
-            <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
-          {% endif %}
-          </ul>
-
-          <ul class="sidebar-nav">
-            {% if user.is_staff %}
-            <li><strong>Staff</strong></li>
-            <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
-            {% endif %}
-            {% if perms.catalog.add_author %}
-              <li><a href="{% url 'author-create' %}">Create Author</a></li>
-            {% endif %}
-            {% if perms.catalog.add_book %}
-              <li><a href="{% url 'book-create' %}">Create Book</a></li>
-            {% endif %}
-          </ul>
-
-
-          {% endblock %}
-        </div>
-        <div class="col-sm-10">{% block content %}{% endblock %}{% block pagination %}
+      {% include 'navbar.html' %}
+    <div class="container">
+        <div class="">{% block content %}{% endblock %}{% block pagination %}
           {% if is_paginated %}
               <div class="pagination">
                   <span class="page-links">

@@ -1,7 +1,16 @@
-.sidebar-nav {
+body>div {
   margin-top: 20px;
-  padding: 0;
-  list-style: none;
+}
+
+body {
+  background-color: hsl(200, 55%, 40%);
+}
+
+body>.container {
+  background-color: hsl(200, 55%, 60%);
+  min-height: 200px;
+  max-height: 950px;
+  height: 950px;
 }
 
 #logout-form {
@@ -11,4 +20,49 @@
 #logout-form button {
   padding: 0;
   margin: 0;
+}
+
+#main>li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#bookList>li {
+  font-size: 15pt;
+  list-style-type: upper-roman;
+}
+
+#authorList>li {
+  font-size: 15pt;
+  list-style-type: square;
+}
+
+#authorForm>tr,
+td,
+th {
+  height: 50px;
+}
+
+#authorForm>h2 {
+  margin: 100px;
+  color: red;
+}
+
+#bookForm>tr,
+td,
+th {
+  height: 50px;
+}
+
+#bookForm>input {
+  margin-top: 25px;
+}
+
+#authorForm>input {
+  margin-top: 25px;
+}
+
+a {
+  text-decoration: none;
 }
