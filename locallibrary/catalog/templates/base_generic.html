@@ -13,8 +13,10 @@
       crossorigin="anonymous"
     />
     <!-- Add additional CSS in static file -->
+    {% block style %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% endblock style%}
   </head>
   <body>
       {% include 'navbar.html' %}

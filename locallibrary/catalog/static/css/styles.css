@@ -1,5 +1,14 @@
-nav {
-  color: white;
+body>div {
+  margin-top: 20px;
+}
+
+body {
+  background-color: blue;
+}
+
+body>.container {
+  background-color: lightblue;
+  height: 200%;
 }
 
 #logout-form {
@@ -11,6 +20,18 @@ nav {
   margin: 0;
 }
 
-p {
-  color: red;
+#main>li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#bookList>li {
+  font-size: 15pt;
+  list-style-type: upper-roman;
+}
+
+#authorList>li {
+  font-size: 15pt;
+  list-style-type: square;
 }

@@ -1,6 +1,12 @@
 {% extends "base_generic.html" %} 
 
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+{% endblock style %}
+
 {% block title %}<title>Main Page</title>{% endblock title %}
+
 {% block content %}
 <h1>Local Library Home</h1>
 <p>
@@ -9,7 +15,7 @@
 </p>
 <h2>Dynamic content</h2>
 <p>The library has the following record counts:</p>
-<ul>
+<ul id="main">
   <li><strong>Books:</strong> {{ num_books }}</li>
   <li><strong>Copies:</strong> {{ num_instances }}</li>
   <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
