@@ -1,81 +1,74 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
-      </button>
-      <div class="col-sm-4">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'books' %}">All Books</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'authors' %}">All Authors</a>
-          </li>
+        <div class="col-sm-4">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'books' %}">All Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'authors' %}">All Authors</a>
+            </li>
 
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'my-borrowed' %}">My Borrowed</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}?=next{{request.path}}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-    </div>
-    <div class="col-sm-4">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'books' %}">All Books</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'authors' %}">All Authors</a>
-          </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <form class="nav-item" id="logout-form" method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button style="text-indent: 1em" type="submit" class="btn mt-2 nav-link active">
+                  Logout
+                </button>
+              </form>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <li class="nav-item">
+                  <button type="submit" class="btn nav-link active">
+                    User: {{user.username}}
+                  </button>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'my-borrowed' %}">My Borrowed</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+        </div>
 
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'my-borrowed' %}">My Borrowed</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}?=next{{request.path}}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-    </div>
-    <div class="col-sm-4">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <p>Staff</p>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'books' %}">All Books</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'authors' %}">All Authors</a>
-          </li>
-
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'my-borrowed' %}">My Borrowed</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}?=next{{request.path}}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-    </div>
+        <div class="col-sm-4 justify-content-center">
+          {% if user.is_authenticated and user.is_staff %}
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button type="submit" class="btn nav-link active">
+                  Staff
+                </button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'books' %}">Create Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'authors' %}">Create Author</a>
+              </li>
+              {% block navbar %}{% endblock %}
+            </ul>
+            {% endif %}
+        </div>
     </div>
   </nav>
   
